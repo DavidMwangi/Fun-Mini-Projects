@@ -8,27 +8,49 @@ from random import choice
 
 vowels = ('a','e','i','o','u')
 
-prompt = input(">")
+err = "An error occured"
 
-output = ""
 
-for letter in prompt:
+while True:
 
-    if letter not in vowels:
+    try:
 
-        output += letter
+        output = ""
+
+        prompt = str(input(">"))
+
+        
+    except Exception as e:
+
+        print(err)
+        print(e)
+        
 
     else:
 
-        temp = choice(vowels)
+        if prompt == 0:
 
-        while temp == letter:
-
-            temp = choice(vowels)
+            break
 
         else:
 
-            output += temp
+            for letter in prompt:
+
+                if letter not in vowels:
+
+                    output += letter
+
+                else:
+
+                    temp = choice(vowels)
+
+                    while temp == letter:
+
+                        temp = choice(vowels)
+
+                    else:
+
+                        output += temp
 
             
-print(output)
+            print(output)
